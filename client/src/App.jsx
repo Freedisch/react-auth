@@ -1,13 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import Headers from "./components/Headers";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <Headers />
+      <BrowserRouter>
+        <Headers />
+        <div className="pages">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/details" element={<Details />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
