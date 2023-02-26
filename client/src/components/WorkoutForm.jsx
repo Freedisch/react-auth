@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useWorkoutContext } from "../hooks/useWorkoutsContext";
 
 export default function WorkoutForm() {
   const [title, setTitle] = useState("");
   const [loads, setLoads] = useState("");
   const [reps, setReps] = useState("");
+  const { dispatch } = useWorkoutContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,10 +16,12 @@ export default function WorkoutForm() {
     try {
       const response = await axios.post("http://localhost:8000/api/", workout);
       const json = await response.data;
+
       console.log(json);
       setTitle("");
       setLoads("");
       setReps("");
+      dispatch({ type: "CREATE_WORKOUT", payload: json });
     } catch (error) {
       console.log(error);
     }
