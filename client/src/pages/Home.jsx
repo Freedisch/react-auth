@@ -23,7 +23,10 @@ export default function Home() {
       <div className="workouts">
         {workout &&
           workout.map((work) => (
-            <WorkoutDetails workout={work} key={work._id} />
+            <>
+              <WorkoutDetails workout={work} key={work._id} />
+              <h1>testst</h1>
+            </>
           ))}
       </div>
       <WorkoutForm />
