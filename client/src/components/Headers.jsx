@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 export default function Headers() {
-  useEffect( async () =>{
-    const [status, setStatus] = useState(false)
-    const response = await axios("")
-    if (!response)
-      return console.error("Badd request")
-    setStatus(true)
-  }, [])
-
   return (
     <nav className="navbar bg-body-tertiary">
       <form className="container-fluid justify-content-start">
